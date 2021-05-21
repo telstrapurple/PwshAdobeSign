@@ -27,7 +27,7 @@ stages:
     PS51: true
 
 - stage: Deploy
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
 
   - job: Commit_Updated_Manifest
@@ -43,7 +43,7 @@ stages:
         Move-Item -Path '$(Pipeline.Workspace)/files/${{ variables.moduleName }}.psd1' -Destination '${{ variables.moduleName }}.psd1' -Confirm:$false -Force
         git add ${{ variables.moduleName }}.psd1
         git -c "user.name=$(Build.RequestedFor)" -c "user.email=$(Build.RequestedForEmail)" commit -m "Updated module version: $(Build.BuildNumber) [skip ci]"
-        git push origin HEAD:master
+        git push origin HEAD:main
       workingDirectory: '$(Build.SourcesDirectory)'
 
   - job: Github_Release
@@ -52,7 +52,7 @@ stages:
     - task: GithubRelease@0
       displayName: 'Create GitHub Release'
       inputs:
-        target: master
+        target: main
         gitHubConnection: github.com_RobFaie
         repositoryName: telstrapurple/${{ variables.moduleName }}
         tagSource: manual

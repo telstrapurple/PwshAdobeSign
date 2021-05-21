@@ -1,2 +1,6 @@
 mode: Mainline
 no-bump-message: '\[skip ci\]|\+semver:\s?(none|skip)'
+
+branches:
+  master:
+    regex: ^master$|^main$
