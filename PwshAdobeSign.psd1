@@ -70,10 +70,21 @@
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport = @(
-        'Connect-',       'Connect-AdobeSign'
-        'Get-BaseUri',    'Get-AdobeSignBaseUri'
-        'Get-Connection', 'Get-AdobeSignConnection'
-        'Invoke-Method',  'Invoke-AdobeSignMethod'
+        'Add-UserGroup',                 'Add-UserGroup'
+        'Connect-',                      'Connect-AdobeSign'
+        'Get-Agreement',                 'Get-Agreement'
+        'Get-AgreementCombinedDocument', 'Get-AgreementCombinedDocument'
+        'Get-BaseUri',                   'Get-AdobeSignBaseUri'
+        'Get-Connection',                'Get-AdobeSignConnection'
+        'Get-Group',                     'Get-Group'
+        'Get-User',                      'Get-User'
+        'Get-UserGroup',                 'Get-UserGroup'
+        'Hide-Agreement',                'Hide-Agreement'
+        'Invoke-Method',                 'Invoke-AdobeSignMethod'
+        'Remove-UserGroup',              'Remove-UserGroup'
+        'Show-Agreement',                'Show-Agreement'
+        'Update-AgreementVisibility',    'Update-AgreementVisibility'
+        'Update-UserGroup',              'Update-UserGroup'
     )
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
