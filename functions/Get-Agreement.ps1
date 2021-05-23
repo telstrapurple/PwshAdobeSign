@@ -30,15 +30,15 @@ function Get-Agreement {
     [CMDletBinding(DefaultParameterSetName = 'all')]
     Param (
         # The ID of the agreement.
-        [Parameter(ParameterSetName = 'id')]
-        [ValidateRange(1, [Int32]::MaxValue)]
-        [Int32]
+        [Parameter(Mandatory, ParameterSetName = 'id')]
+        [ValidateNotNullOrEmpty()]
+        [String]
         $Id,
 
         # The ID of the group.
         [Parameter(ParameterSetName = 'all')]
-        [ValidateRange(1, [Int32]::MaxValue)]
-        [Int32]
+        [ValidateNotNullOrEmpty()]
+        [String]
         $GroupId,
 
         # Show agreements that have been hidden.

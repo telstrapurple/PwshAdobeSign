@@ -46,8 +46,8 @@ function Get-AgreementCombinedDocument {
     Param (
         # The ID of the agreement.
         [Parameter(Mandatory)]
-        [ValidateRange(1, [Int32]::MaxValue)]
-        [Int32]
+        [ValidateNotNullOrEmpty()]
+        [String]
         $Id,
 
         # File to save response to

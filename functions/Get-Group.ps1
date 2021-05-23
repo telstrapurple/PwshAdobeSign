@@ -23,8 +23,8 @@ function Get-Group {
     Param (
         # The ID of the group.
         [Parameter()]
-        [ValidateRange(1, [Int32]::MaxValue)]
-        [Int32]
+        [ValidateNotNullOrEmpty()]
+        [String]
         $Id,
 
         # Adobe Sign Connection Context from `Get-AdobeSignConnection`

@@ -19,14 +19,14 @@ function Remove-UserGroup {
     Param (
         # The ID of the user.
         [Parameter(Mandatory)]
-        [ValidateRange(1, [Int32]::MaxValue)]
-        [Int32]
+        [ValidateNotNullOrEmpty()]
+        [String]
         $UserId,
 
         # The ID of the group.
         [Parameter(Mandatory)]
-        [ValidateRange(1, [Int32]::MaxValue)]
-        [Int32]
+        [ValidateNotNullOrEmpty()]
+        [String]
         $GroupId,
 
         # Adobe Sign Connection Context from `Get-AdobeSignConnection`

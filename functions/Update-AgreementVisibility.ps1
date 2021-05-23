@@ -23,8 +23,8 @@ function Update-AgreementVisibility {
     Param (
         # The ID of the agreement.
         [Parameter(Mandatory)]
-        [ValidateRange(1, [Int32]::MaxValue)]
-        [Int32]
+        [ValidateNotNullOrEmpty()]
+        [String]
         $Id,
 
         [Parameter(Mandatory)]
