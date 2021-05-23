@@ -70,21 +70,21 @@
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport = @(
-        'Add-UserGroup',                 'Add-UserGroup'
+        'Add-UserGroup',                 'Add-AdobeSignUserGroup'
         'Connect-',                      'Connect-AdobeSign'
-        'Get-Agreement',                 'Get-Agreement'
-        'Get-AgreementCombinedDocument', 'Get-AgreementCombinedDocument'
+        'Get-Agreement',                 'Get-AdobeSignAgreement'
+        'Get-AgreementCombinedDocument', 'Get-AdobeSignAgreementCombinedDocument'
         'Get-BaseUri',                   'Get-AdobeSignBaseUri'
         'Get-Connection',                'Get-AdobeSignConnection'
-        'Get-Group',                     'Get-Group'
-        'Get-User',                      'Get-User'
-        'Get-UserGroup',                 'Get-UserGroup'
-        'Hide-Agreement',                'Hide-Agreement'
+        'Get-Group',                     'Get-AdobeSignGroup'
+        'Get-User',                      'Get-AdobeSignUser'
+        'Get-UserGroup',                 'Get-AdobeSignUserGroup'
+        'Hide-Agreement',                'Hide-AdobeSignAgreement'
         'Invoke-Method',                 'Invoke-AdobeSignMethod'
-        'Remove-UserGroup',              'Remove-UserGroup'
-        'Show-Agreement',                'Show-Agreement'
-        'Update-AgreementVisibility',    'Update-AgreementVisibility'
-        'Update-UserGroup',              'Update-UserGroup'
+        'Remove-UserGroup',              'Remove-AdobeSignUserGroup'
+        'Show-Agreement',                'Show-AdobeSignAgreement'
+        'Update-AgreementVisibility',    'Update-AdobeSignAgreementVisibility'
+        'Update-UserGroup',              'Update-AdobeSignUserGroup'
     )
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
