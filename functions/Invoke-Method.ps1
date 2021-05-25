@@ -22,6 +22,10 @@ function Invoke-Method {
 
         Makes a Update request to the /users/{user_id} endpoint to update the permissions level.
     .EXAMPLE
+        PS /> Invoke-AdobeSignMethod -Path '/users/document' -OutFile 'document.pdf'
+
+        Makes a Get request to the /users/document endpoint and saves to the 'document.pdf' file
+    .EXAMPLE
         PS /> Invoke-AdobeSignMethod -Context $context -Path '/users'
 
         Makes a GET request to the /users endpoint using a connection context.
@@ -48,6 +52,12 @@ function Invoke-Method {
         [ValidateNotNullOrEmpty()]
         [PSCustomObject]
         $Body,
+
+        # File to save response to
+        [Parameter()]
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $OutFile,
 
         # Whether to retry when rate limited.
         [Parameter()]
@@ -84,13 +94,18 @@ function Invoke-Method {
         $params.Token = $Context.IntegrationKey.Password
     } else {
         # PS Desktop requires manual header creation.
-        $params.Headers['Bearer'] = $Context.IntegrationKey.GetNetworkCredential().Password
+        $params.Headers.Bearer = $Context.IntegrationKey.GetNetworkCredential().Password
     }
 
     if ($PSBoundParameters.ContainsKey('Body')) {
         $params.Body = $Body | ConvertTo-Json -Depth 10 -Compress
         $params.ContentType = 'application/json'
         $params.Body | Out-String | Write-Debug
+    }
+
+    if ($PSBoundParameters.ContainsKey('OutFile')) {
+        $params.Headers.Accept = 'application/pdf'
+        $params.OutFile = $OutFile
     }
 
     $uri = $Context.ApiBaseUri + 'api/rest/v6/' + $Path.TrimStart('/')
