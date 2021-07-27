@@ -36,7 +36,7 @@ function Add-UserGroup {
         $Context = $null
     )
 
-    if ($PSCmdlet.ShouldProcess($UserId, 'Add Group Membership')){
+    if ($PSCmdlet.ShouldProcess($UserId, 'Add Group Membership')) {
         $result = Update-UserGroup @PSBoundParameters -Status 'ACTIVE' -Verbose:$VerbosePreference -Confirm:$false
         $result
     }

@@ -1,4 +1,6 @@
 ﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidOverwritingBuiltInCmdlets', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
 Param()
 
 Import-Module "$PSScriptRoot/../PwshAdobeSign.psm1" -Force
@@ -16,7 +18,7 @@ Describe 'Invoke-Method' -Tags 'internet' {
             }
             $connectionContext | Add-Member -TypeName 'AdobeSignContext'
 
-            function Invoke-RestMethod {[CMDletBinding()] Param ($Method = 'Get', $Uri, $Headers, $Body, $Token, $ContentType, $OutFile, $Authentication) }
+            function Invoke-RestMethod { [CMDletBinding()] Param ($Method = 'Get', $Uri, $Headers, $Body, $Token, $ContentType, $OutFile, $Authentication) }
             Mock -ModuleName PwshAdobeSign Invoke-RestMethod { }
         }
 

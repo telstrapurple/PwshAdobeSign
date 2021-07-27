@@ -1,3 +1,7 @@
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
+Param()
+
 $IsInteractive = [Environment]::GetCommandLineArgs() -join ' ' -notmatch '-NonI'
 
 Describe 'Add-UserGroup' {

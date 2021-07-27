@@ -1,3 +1,6 @@
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+Param()
+
 $IsInteractive = [Environment]::GetCommandLineArgs() -join ' ' -notmatch '-NonI'
 
 Describe 'Update-AgreementVisibility' {

@@ -109,7 +109,7 @@ function Update-UserGroup {
         $body.groupInfoList[0].isPrimaryGroup = $IsPrimaryGroup
     }
 
-    if ($PSCmdlet.ShouldProcess($UserId, 'Set Group Membership')){
+    if ($PSCmdlet.ShouldProcess($UserId, 'Set Group Membership')) {
         $result = Invoke-Method -Context $Context -Method 'Put' -Path $path -Body $body -Verbose:$VerbosePreference
         $result
     }
