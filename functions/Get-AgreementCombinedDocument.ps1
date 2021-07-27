@@ -51,7 +51,7 @@ function Get-AgreementCombinedDocument {
         $Id,
 
         # File to save response to
-        [Parameter()]
+        [Parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
         [String]
         $OutFile,

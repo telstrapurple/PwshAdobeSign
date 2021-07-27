@@ -36,7 +36,7 @@ function Remove-UserGroup {
         $Context = $null
     )
 
-    if ($PSCmdlet.ShouldProcess($UserId, 'Add Group Membership')){
+    if ($PSCmdlet.ShouldProcess($UserId, 'Remove Group Membership')){
         $result = Update-UserGroup @PSBoundParameters -Status 'DELETED' -Verbose:$VerbosePreference -Confirm:$false
         $result
     }
