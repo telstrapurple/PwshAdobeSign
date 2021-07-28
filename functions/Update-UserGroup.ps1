@@ -77,12 +77,12 @@ function Update-UserGroup {
         # Make the user a group admin
         [Parameter()]
         [Boolean]
-        $GroupAdmin,
+        $IsGroupAdmin,
 
         # Set as the primary group for the user
         [Parameter()]
         [Boolean]
-        $PrimaryGroup,
+        $IsPrimaryGroup,
 
         # Adobe Sign Connection Context from `Get-AdobeSignConnection`
         [Parameter()]
@@ -101,15 +101,15 @@ function Update-UserGroup {
         )
     }
 
-    if ($PSBoundParameters.ContainsKey('GroupAdmin')) {
-        $body.groupInfoList[0].isGroupAdmin = $GroupAdmin
+    if ($PSBoundParameters.ContainsKey('IsGroupAdmin')) {
+        $body.groupInfoList[0].isGroupAdmin = $IsGroupAdmin
     }
 
-    if ($PSBoundParameters.ContainsKey('PrimaryGroup')) {
-        $body.groupInfoList[0].isPrimaryGroup = $PrimaryGroup
+    if ($PSBoundParameters.ContainsKey('IsPrimaryGroup')) {
+        $body.groupInfoList[0].isPrimaryGroup = $IsPrimaryGroup
     }
 
-    if ($PSCmdlet.ShouldProcess($UserId, 'Set Group Membership')){
+    if ($PSCmdlet.ShouldProcess($UserId, 'Set Group Membership')) {
         $result = Invoke-Method -Context $Context -Method 'Put' -Path $path -Body $body -Verbose:$VerbosePreference
         $result
     }
