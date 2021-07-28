@@ -35,7 +35,11 @@ steps:
       Import-Module -Name './Pester/*/Pester.psd1'
       Get-Module Pester | Format-Table Name, Version | Out-String
       Set-Location -Path '$(Pipeline.Workspace)'
-      Invoke-Pester -CI
+      $config = [PesterConfiguration]::Default
+      $config.TestResult.Enabled = $true
+      $config.Run.Exit = $true
+      $config.Output.Verbosity = 'Detailed'
+      Invoke-Pester -Configuration $config
       Get-ChildItem *.xml | Out-String
 - task: PublishTestResults@2
   condition: succeededOrFailed()
