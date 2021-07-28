@@ -94,7 +94,7 @@ function Invoke-Method {
         $params.Token = $Context.IntegrationKey.Password
     } else {
         # PS Desktop requires manual header creation.
-        $params.Headers.Bearer = $Context.IntegrationKey.GetNetworkCredential().Password
+        $params.Headers.Authorization = 'Bearer ' + $Context.IntegrationKey.GetNetworkCredential().Password
     }
 
     if ($PSBoundParameters.ContainsKey('Body')) {
@@ -129,7 +129,7 @@ function Invoke-Method {
                     $retryAfter = 5
                     if ($errorRecord.Exception -is [System.Net.WebException]) {
                         if ($response.Headers['Retry-After']) {
-                            $retryAfter = $response.Headers['Retry-After']
+                            $retryAfter = $response.Headers['Retry-After'] -as [Int]
                         }
                     } else {
                         if ($response.Headers.RetryAfter) {
