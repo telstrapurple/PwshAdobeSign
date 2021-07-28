@@ -94,7 +94,7 @@ function Invoke-Method {
         $params.Token = $Context.IntegrationKey.Password
     } else {
         # PS Desktop requires manual header creation.
-        $params.Headers.Bearer = $Context.IntegrationKey.GetNetworkCredential().Password
+        $params.Headers.Authorization = 'Bearer ' + $Context.IntegrationKey.GetNetworkCredential().Password
     }
 
     if ($PSBoundParameters.ContainsKey('Body')) {
