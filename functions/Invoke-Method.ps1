@@ -129,7 +129,7 @@ function Invoke-Method {
                     $retryAfter = 5
                     if ($errorRecord.Exception -is [System.Net.WebException]) {
                         if ($response.Headers['Retry-After']) {
-                            $retryAfter = $response.Headers['Retry-After']
+                            $retryAfter = $response.Headers['Retry-After'] -as [Int]
                         }
                     } else {
                         if ($response.Headers.RetryAfter) {
