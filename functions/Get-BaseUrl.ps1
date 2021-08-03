@@ -36,7 +36,7 @@ function Get-BaseUri {
         $params.Token = $IntegrationKey
     } else {
         # PS Desktop requires manual header creation.
-        $params.Headers['Bearer'] = [PSCredential]::new('IntegrationKey', $IntegrationKey).GetNetworkCredential().Password
+        $params.Headers.Authorization = 'Bearer ' + [PSCredential]::new('IntegrationKey', $IntegrationKey).GetNetworkCredential().Password
     }
 
     $result = Invoke-RestMethod @params
